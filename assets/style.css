@@ -60,7 +60,8 @@ body * {
 }
 
 .icon {
-    width: 1.5em;
+    width: 2rem;
+    aspect-ratio: 1/1;
 }
 
 .main-nav {
@@ -85,9 +86,10 @@ nav ul {
     display: grid;
     grid-template-areas:
         "projects announcements"
-        "projects trending";
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 1fr 1fr;
+        "projects trending"
+        "projects blank";
+    grid-template-columns: 5fr 2fr;
+    grid-template-rows: min-content min-content 1fr;
     gap: 2.5rem;
     padding: 2rem;
 }  
@@ -118,18 +120,19 @@ nav ul {
     display: grid;
     grid-template-areas: 
         "title"
+        "card"
+        "card"
         "card";
     grid-template-columns: 1fr;
     grid-template-rows: 2.5em;
-    grid-auto-rows: 1fr;
+    grid-auto-rows: max-content;
 }
 
-.announcements .card, .trending .card {
-    align-items: center;
+.announcement-card {
+    padding: 1.5rem 0;
 }
 
 .not-end {
-    padding-bottom: 1rem;
     border-bottom: 1px solid #cec;
 }
 
@@ -138,10 +141,17 @@ nav ul {
     display: grid;
     grid-template-areas: 
         "title"
+        "card"
+        "card"
+        "card"
         "card";
     grid-template-columns: 1fr;
     grid-template-rows: 2.5em;
-    grid-auto-rows: 1fr;
+}
+
+.trending .card {
+    align-items: center;
+    gap: 2rem;
 }
 
 .card {
@@ -158,19 +168,31 @@ nav ul {
     grid-template-areas: 
         "avatar handle"
         "avatar desc";
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: max-content 1fr;
     grid-template-rows: 1fr 1fr;
+    gap: 0.25rem;
+}
+
+.trending-card .avatar-sm {
+    width: 80px;
+    justify-self: center;
+    margin: 0 1rem;
+    border-radius: 50%;
 }
 
 .handle {
     grid-area: handle;
+    align-self: end;
+    font-weight: 900;
+    font-size: 1.2em;
 }
 
 .handle-desc {
     grid-area: desc;
+    align-self: start;
 }
 
-.avatar-sm {
+div .avatar-sm {
     grid-area: avatar;
 }
 
@@ -182,22 +204,31 @@ nav ul {
         "card-content card-content card-content card-content"
         "BLANKSPACE fav follow git";
     grid-template-columns: 3fr 1fr 1fr 1fr;
+    grid-template-rows: max-content 1fr max-content;
+    font-size: 1.2em;
+    max-width: 75ch;
+    line-height: 1.5em;
+    gap: 1rem;
 }
 
 .fav {
     grid-area: fav;
+    justify-self: end;
 }
 
 .follow {
     grid-area: follow;
+    justify-self: end;
 }
 
 .git {
     grid-area: git;
+    justify-self: end;
 }
 
 .card-content {
     grid-area: card-content;
+    padding: 0 0.25rem;
 }
 
 .title {
@@ -210,11 +241,12 @@ nav ul {
     grid-template-areas: 
         "search cluster"
         "herald controls";
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: minmax(max-content, 1fr) minmax(max-content, 1fr);
-    padding: 1rem;
+    grid-template-columns: 7fr 3fr;
+    grid-template-rows: max-content;
+    padding: 1.5rem 4rem 3rem;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    gap: 2rem;
 } 
 
 .herald {
@@ -223,37 +255,64 @@ nav ul {
     grid-template-areas: 
         "avatar greet"
         "avatar name";
-    grid-template-columns: 100px 1fr;
-    grid-template-rows: 1fr 1fr;
-    align-items: center;
+    grid-template-columns: 8rem 1fr;
+    grid-template-rows: 1fr 2fr;
 }
 
 .avatar-lg {
     grid-area: avatar;
+    width: 7rem;
 }
 
 .herald p {
     grid-area: greet;
+    font-size: 1.5rem;
+    font-weight: 300;
+    align-self: end;
 }
 
 .herald h1 {
     grid-area: name;
+    font-size: 3rem;
+    font-weight: 300;
 }
 
 .search-cluster {
     grid-area: search;
     display: grid;
-    grid-template-columns: 100px 1fr;
+    grid-template-columns: max-content 1fr;
     align-items: center;
+    gap: 1rem;
+}
+
+input[type="search"] {
+    width: 100%;
+    background-color: #eee;
+    padding: 0.5rem 1rem;
+    border-radius: 50em;
+    border: none;
 }
 
 .notif-cluster {
     grid-area: cluster;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-auto-columns: 1fr;
-    grid-auto-flow: column;
-    align-items: center;    
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+}
+
+.notif-cluster .avatar-sm {
+    width: 6ch;
+    justify-self: center;
+    align-self: end
+}
+
+.notif-cluster .icon {
+    justify-self: end
+}
+
+.notif-cluster span {
+    justify-self: start;
+    font-weight: 900;
 }
 
 .controls {
@@ -262,6 +321,7 @@ nav ul {
     grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
     align-items: center;
+    gap: clamp(1px, 1em, 4em);
 }
 
 button {

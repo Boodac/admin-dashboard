@@ -1,0 +1,20 @@
+<svg version="1.1"
+     width="300" height="300"
+     xmlns="http://www.w3.org/2000/svg">
+// this is an SVG representation of a copyrighted mark. All rights reserved.
+    <circle cx="50%" cy="50%" r="50%" fill="#5865F2" />
+    <circle cx="50%" cy="50%" r="48%" fill="#ddd" />
+    <g stroke="#6476a9" stroke-width="8%">
+        <g stroke="#73a9ff" stroke-width="4%">
+            <line x1="34%" y1="80.25%" x2="67.5%" y2="42%" />
+            <line x1="66%" y1="80.25%" x2="32.5%" y2="42%" />
+        </g>
+        <line x1="58.25%" y1="29.25%" x2="83.125%" y2="64.125%" />
+        <line x1="41.75%" y1="29.25%" x2="16.875%" y2="64.125%" />
+        </g>
+    <g stroke="#424666" stroke-width="10%" fill="transparent">
+        <circle cx="50%" cy="20%" r="10%" />
+        <circle cx="26%" cy="70%" r="10%" />
+        <circle cx="74%" cy="70%" r="10%" />
+    </g>
+</svg>
