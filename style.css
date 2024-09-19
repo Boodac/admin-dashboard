@@ -19,7 +19,6 @@ body {
 }
 
 body * {
-    border: 1px solid red;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -76,7 +75,9 @@ img { /* temp */
 .card-container {
     grid-area: container;
     display: grid;
+    grid-template-areas: "card card";
     grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 1fr;
     gap: 1.5rem;
 }
 
@@ -87,9 +88,17 @@ img { /* temp */
         "title"
         "card";
     grid-template-columns: 1fr;
-    grid-template-rows: 1.5em;
+    grid-template-rows: 2.5em;
     grid-auto-rows: 1fr;
-    gap: 1.5rem;
+}
+
+.announcements .card, .trending .card {
+    align-items: center;
+}
+
+.not-end {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #cec;
 }
 
 .trending {
@@ -99,17 +108,68 @@ img { /* temp */
         "title"
         "card";
     grid-template-columns: 1fr;
-    grid-template-rows: 1.5em;
+    grid-template-rows: 2.5em;
     grid-auto-rows: 1fr;
-    gap: 1.5rem;
 }
 
 .card {
     display: grid;
     grid-template-columns: 1fr;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     background-color: white;
     box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    padding: 2rem;
+}
+
+.trending-card {
+    display: grid;
+    grid-template-areas: 
+        "avatar handle"
+        "avatar desc";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.handle {
+    grid-area: handle;
+}
+
+.handle-desc {
+    grid-area: desc;
+}
+
+.avatar-sm {
+    grid-area: avatar;
+}
+
+.card-container .card {
+    border: 8px solid white;
+    border-left: 8px solid orange;
+    grid-template-areas:
+        "title title title title"
+        "card-content card-content card-content card-content"
+        "BLANKSPACE fav follow git";
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+}
+
+hr {
+    height: 1px;
+}
+
+.fav {
+    grid-area: fav;
+}
+
+.follow {
+    grid-area: follow;
+}
+
+.git {
+    grid-area: git;
+}
+
+.card-content {
+    grid-area: card-content;
 }
 
 .title {
@@ -124,7 +184,9 @@ img { /* temp */
         "herald controls";
     grid-template-columns: minmax(max-content, 1fr) minmax(max-content, 1fr);
     grid-template-rows: minmax(max-content, 1fr) minmax(max-content, 1fr);
-    margin: 1rem;
+    padding: 1rem;
+    gap: 1rem;
+    background-color: white;
 } 
 
 .herald {
@@ -138,7 +200,7 @@ img { /* temp */
     align-items: center;
 }
 
-.herald img {
+.avatar-lg {
     grid-area: avatar;
 }
 
@@ -163,7 +225,7 @@ img { /* temp */
     grid-template-columns: 1fr;
     grid-auto-columns: 1fr;
     grid-auto-flow: column;
-    align-items: center;
+    align-items: center;    
 }
 
 .controls {
