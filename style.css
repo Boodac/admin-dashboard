@@ -4,6 +4,18 @@
     box-sizing: border-box;
 }
 
-p {
-    color: red;;
+body {
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas: 
+        "sidebar header"
+        "sidebar main";
+    grid-template-columns: minmax(max-content, 25fr) 75fr;
+    grid-template-rows: minmax(max-content, 15fr) 85fr;
 }
+
+.sidebar { grid-area: sidebar; } 
+
+.header { grid-area: header; } 
+
+.main { grid-area: main; }  
