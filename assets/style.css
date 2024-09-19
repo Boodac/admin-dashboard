@@ -11,7 +11,7 @@ li {
     display: grid;
     grid-template-columns: max-content 1fr;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 body {
@@ -52,7 +52,7 @@ body * {
     align-items: center;
     grid-template-columns: max-content 1fr;
     font-size: 1.25em;
-    gap: 0.5ch;
+    gap: 0.625rem;
 }
 
 .logo {
@@ -206,7 +206,6 @@ div .avatar-sm {
     grid-template-columns: 3fr 1fr 1fr 1fr;
     grid-template-rows: max-content 1fr max-content;
     font-size: 1.2em;
-    max-width: 75ch;
     line-height: 1.5em;
     gap: 1rem;
 }
@@ -302,12 +301,14 @@ input[type="search"] {
 
 .notif-cluster .avatar-sm {
     width: 6ch;
-    justify-self: center;
-    align-self: end
+    justify-self: end;
+    align-self: end;
+    position: relative;
+    margin-right: 1.5em;
 }
 
 .notif-cluster .icon {
-    justify-self: end
+    justify-self: end;
 }
 
 .notif-cluster span {
@@ -325,10 +326,11 @@ input[type="search"] {
 }
 
 button {
-    background-color: blue;
+    background-color: rgb(190, 116, 151); 
     color: white;
     font-size: 1.5rem;
     font-weight: 900;
     border-radius: 2em;
     padding: 0.75rem 3rem;
+    border: none;
 }
